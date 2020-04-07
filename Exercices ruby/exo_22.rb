@@ -6,7 +6,10 @@ diese = "#"
 
 puts "Voici la pyramide :"
 
-for i in 0..stairs
+i = 0
+
+while i != stairs
   puts diese
   diese = diese + "#"
+  i = i + 1
 end

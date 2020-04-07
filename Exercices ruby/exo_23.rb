@@ -6,7 +6,10 @@ diese = "#"
 
 puts "Voici la pyramide :"
 
-for i in 0..stairs
-  puts diese
+i = 0
+
+while i != stairs
+  puts diese.rjust(stairs + 1)
   diese = diese + "#"
+  i = i + 1
 end

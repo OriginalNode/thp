@@ -7,6 +7,6 @@ diese = "#"
 puts "Voici la pyramide :"
 
 for i in 0..stairs
-  puts diese
+  puts diese.rjust(stairs + 1)
   diese = diese + "#"
 end
