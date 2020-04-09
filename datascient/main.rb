@@ -16,8 +16,6 @@ print "1 - Combien y a-t-il de journalistes dans ce array ?\n
 
 choice = gets.chomp
 
-a = 0
-
 def handleNumb(tab)
   a = 0
   for i in tab
@@ -83,7 +81,9 @@ when 6
 when 7
   puts "Voici la liste des journalistes triée par ordre alphabétique:\n #{JOURNAL.sort}"
 when 8
-  puts "Voici la liste des 50 handles les plus courts:\n #{JOURNAL.sort}"
+  puts "Voici la liste des 50 handles les plus courts:\n #{JOURNAL.sort_by(&:length).first(50)}"
+when 9
+  puts "Voila la position de @epenser dans l'array:\n #{JOURNAL.find_index("@epenser")}"
 else
   
 end
