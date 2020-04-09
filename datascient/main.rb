@@ -49,6 +49,24 @@ def upercase(tab)
   return a
 end
 
+def countUpercase(tab)
+  a = 0
+  for i in tab
+    if i.scan(/[A-Z]/).length != 0
+      a = a + 1
+    end
+  end
+  return a
+end
+
+def countUnderscore(tab)
+  a = 0
+  for i in tab
+    a = a + i.scan(/[_]/).count
+  end
+  return a
+end
+
 case Integer(choice)
 when 1
   puts "Il y a #{JOURNAL.count()} journalistes dans cette liste"
@@ -58,6 +76,14 @@ when 3
   puts "Il y a #{audeCheck(JOURNAL)} journalistes qui contiennent le nom Aude"
 when 4
   puts "Il y a #{upercase(JOURNAL)} journalistes qui débutent par une majuscule"
+when 5
+  puts "Il y a #{countUpercase(JOURNAL)} handle journalistes qui contiennent une majuscule"
+when 6
+  puts "Il y a #{countUnderscore(JOURNAL)} handle journalistes qui contiennent une majuscule"
+when 7
+  puts "Voici la liste des journalistes triée par ordre alphabétique:\n #{JOURNAL.sort}"
+when 8
+  puts "Voici la liste des 50 handles les plus courts:\n #{JOURNAL.sort}"
 else
   
 end
