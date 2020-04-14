@@ -1,39 +1,20 @@
-y = 0
-while y <= i.size
-  if i[y] == "i" || i[y] == "o" || i[y] == "a" || i[y] == "e" || i[y] == "y"
-    return y
-  end
-  y += 1
-end
-return y
+def translate(words)
+  words.split.map { |word| trans_word(word) }.join(" ")
+
 end
 
-def calcul(i)
-y = count_conson(i)
-u = i[y..i.size]
-if y != 0
-  j = i[0..y-1]
-end
-
-uu = u.to_s
-jj = j.to_s
-
-return uu + jj + "ay"
-end
-
-def translate(i)
-tab = []
-tab = i.split
-str = ""
-y = 0
-while y < tab.size
-  if y == tab.size - 1
-    str += calcul(tab[y])
-    y += 1
+def trans_word(word)
+  if word.match(/^[aiueo]/)
+    word + "ay"
+  elsif word.match(/^qu/)
+    word[2...word.length] + "quay"
+  elsif word.match(/^.?qu/)
+    word[3...word.length] + word[0] + "quay"
+  elsif word[1].match(/[aiueo]/)
+    word[1...word.length] + word[0] + "ay"
+  elsif word[2].match(/[aieuo]/)
+    word[2...word.length] + word[0..1] + "ay"
   else
-    str += calcul(tab[y]) + " "
-    y += 1
+    word[3...word.length] + word[0..2] + "ay"
   end
-end
-return(str)
 end

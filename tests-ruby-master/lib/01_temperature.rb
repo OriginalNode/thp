@@ -1,7 +1,7 @@
-def ftoc(fahrenheit)
-  return (fahrenheit.to_f - 32) * 5 / 9
+def ftoc(temperature)
+  return (temperature.to_f - 32) * 5/9
 end
 
-def ctof(celsius)
-  return (celsius.to_f * 9 / 5 ) + 32
+def ctof(temperature)
+  return temperature.to_f * 9/5 + 32
 end

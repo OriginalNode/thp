@@ -1,38 +1,30 @@
-def echo(debut)
-  return debut
+def echo(x)
+ return x
 end
 
-def shout(debut)
-  return debut.upcase
+def shout(x)
+  return x.upcase
 end
 
-def repeat(word, *copy)
-  if copy[0] == nil
-  return "#{word}" + " " + "#{word}"
-else
-  return "#{word} " + "#{word} " + "#{word}"
-end
+def repeat(x, y=2)
+  array = []
+  y.times { array << x }
+ return array.join(" ")
 end
 
-def start_of_word(string, number)
-  string.slice(0,number)
+def start_of_word(x, y)
+  return x[0...y]
 end
 
-
-def first_word(string)
-  string.split.first
+def first_word(x)
+  return x.split.first
 end
 
-def titleize(string)
-  string.scan(/\w+/).map.with_index do|c, i|
-
-    if i != 0 && c == "the" || c == "and"
-      c.downcase
-    else
-      c.capitalize
-    end
-
+def titleize(x)
+  words = x.split
+  if words.length == 1
+    words.first.capitalize
+  else
+    words.first.capitalize + " " + words[1...words.length].map { |word| word.length < 4 ? word : word.capitalize }.join(" ")
   end
-  .join(" ")
-
 end
